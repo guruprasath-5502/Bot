@@ -4,8 +4,8 @@ import bodyparse from 'body-parser'
 const app = express()
 
 const supabase = createClient(
-    'https://epwwnkgrlzbscfuitica.supabase.co',
-'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwd3dua2dybHpic2NmdWl0aWNhIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzc1MDcwNzksImV4cCI6MTk5MzA4MzA3OX0.CZMYQEfLNcMWhDfXlLuiUYBlnM9Zgic1_T3goNJuK-w'
+    'https://wgucmeubdgeuplqttcpm.supabase.co',
+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndndWNtZXViZGdldXBscXR0Y3BtIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzc1Njc3NDgsImV4cCI6MTk5MzE0Mzc0OH0.nsXQI0Dpv254LTqa-SVSfMkE1g7uhM6lStVgLm4dzvw'
 );
 app.use(bodyparse.json())
 app.use(
@@ -24,7 +24,7 @@ export default async function search(req, res) {
     // client.end;
     console.log("hi")
         const {data, error} = await supabase
-            .from('Bank')
+            .from('bank_branches')
             .select()
 .or(`branch.ilike.%${req.query.q.toLowerCase()}%,city.ilike.%${req.query.q.toLowerCase()}%,district.ilike.%${req.query.q.toLowerCase()}%,state.ilike.%${req.query.q.toLowerCase()}%`)
             .order('ifsc',{ascending:true})
